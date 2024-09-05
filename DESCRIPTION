@@ -1,0 +1,25 @@
+Package: teachIRT
+Type: Package
+Title: Functions to Teach and Explore Item Response Theory
+Version: 0.1.0
+Author: Jan Killisch
+Maintainer: Jan Killisch <jan.killisch@rptu.de>
+Description: This is a very simple R-package that can be used to teach and 
+  explore Item  Response Theory. The package is in not intended for actual 
+  research or applied psychometrics in any way.
+  The package provides functions to compute likelihood components and measures of
+  observed information for unidimensional IRT models as well as some functions to
+  plot them.
+  Included models are
+  - 1PL-3PL
+  - (G)PCM
+  - GRM
+  The models are specified using a traditional IRT-parameterization.
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.1
+Imports: 
+    checkmate,
+    ggplot2,
+    tidyr
+License: GPL (>= 3)
