@@ -80,4 +80,13 @@ occ_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
 ccc_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
 ```
 
+The functions presented above come with a help file. Just type ?\<function_name\>.
+
+```{r}
+# Show help file for the function p_rasch
+?p_rasch
+```
+
+Please let me know if you have trouble using the package or find any bug.
+
 Have fun!
