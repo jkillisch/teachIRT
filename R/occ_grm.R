@@ -45,7 +45,7 @@ occ_grm <- function (theta_range = c(-5, 5), alpha, delta) {
     ggplot2::ggtitle(
       latex2exp::TeX(
         paste0(
-          "CCCs of a GRM with ",
+          "OCCs of a GRM with ",
           delta_tex,
           " and $\\alpha$ = ",
           alpha
