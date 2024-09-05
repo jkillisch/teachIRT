@@ -43,7 +43,7 @@ icc_gpcm <- function (theta_range = c(-5, 5), alpha, delta) {
     ggplot2::ggtitle(
       latex2exp::TeX(
         paste0(
-          "ICC of a PCM with ",
+          "ICCs of a GPCM with ",
           delta_tex,
           " and $\\alpha$ = ",
           alpha
