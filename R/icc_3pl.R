@@ -20,7 +20,7 @@ icc_3pl <- function (theta_range = c(-5, 5), alpha, beta, gamma) {
     ggplot2::scale_y_continuous(breaks = seq(0, 1, 0.2), limits = 0:1) +
     ggplot2::scale_x_continuous(breaks = seq(theta_range[1], theta_range[2])) +
     ggplot2::xlab(latex2exp::TeX("$\\theta$")) +
-    ggplot2::ylab(latex2exp::TeX("$P(U = 1 | \\theta, \\beta)$")) +
+    ggplot2::ylab(latex2exp::TeX("$P(U = 1 | \\theta, \\alpha, \\beta, \\gamma)$")) +
     ggplot2::ggtitle(
       latex2exp::TeX(
         paste0(
