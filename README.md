@@ -2,7 +2,7 @@
 
 A very simple R-package that can be used to teach and explore item response theory (IRT).
 
-Install the package from R using
+Install the package using
 
 ```{r}
 # Run this if the devtools package isn't installed
