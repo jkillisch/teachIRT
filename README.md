@@ -87,6 +87,6 @@ The functions presented above come with a help file. Just type ?\<function_name\
 ?p_rasch
 ```
 
-Please let me know if you have trouble using the package or find any bug.
+Please let me know if you have any trouble using the package or if you find a bug.
 
 Have fun!
