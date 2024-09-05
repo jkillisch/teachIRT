@@ -24,7 +24,7 @@ icc_2pl <- function (theta_range = c(-5, 5), alpha, beta) {
     ggplot2::ggtitle(
       latex2exp::TeX(
         paste0(
-          "ICC of a Rasch-Model with $\\alpha$ = ",
+          "ICC of a 2PL Model with $\\alpha$ = ",
           alpha,
           " and $\\beta$ = ",
           beta

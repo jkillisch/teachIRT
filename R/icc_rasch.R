@@ -18,7 +18,7 @@ icc_rasch <- function (theta_range = c(-5, 5), beta) {
     ggplot2::xlab(latex2exp::TeX("$\\theta$")) +
     ggplot2::ylab(latex2exp::TeX("$P(U = 1 | \\theta, \\beta)$")) +
     ggplot2::ggtitle(
-      latex2exp::TeX(paste0("ICC of a Rasch-Model with $\\beta$ = ", beta))
+      latex2exp::TeX(paste0("ICC of a Rasch Model with $\\beta$ = ", beta))
       ) +
     ggplot2::geom_line(linewidth = 1.5) +
     ggplot2::theme_bw()
