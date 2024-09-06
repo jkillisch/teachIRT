@@ -23,7 +23,7 @@ library(teachIRT)
 
 teachIRT provides four types of functions
 
-(1) Functions to compute probabilities, e.g. to solve an item or to respond in a certain category. These functions begin with a p_ followed by the model name.
+(1) Functions to compute probabilities, e.g. probabilities to solve an item or to respond in a certain category. These functions begin with a p_ followed by the model name.
 
 (2) Functions to plot probabilities (ICCs, OCCs, CCCs). These functions begin with the type of plot followed by the model name.
 
