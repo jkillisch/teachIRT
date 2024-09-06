@@ -1,7 +1,7 @@
 #' Compute the probability to solve an item using the 2PL model
 #'
 #' @inheritParams p_rasch
-#' @param alpha Numeric, item discrimination
+#' @param alpha Numeric, item discrimination parameter
 #'
 #' @return A numeric probability to solve the item
 #' @export
