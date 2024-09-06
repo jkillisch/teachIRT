@@ -1,5 +1,9 @@
 # teachIRT
 
+teachIRT is a simple R-package that can used to teach and explore item response theory (IRT). It is not intended for research or applied psychometrics.
+
+## Installation
+
 Install the package using
 
 ```{r}
@@ -15,6 +19,21 @@ When the installation was successful, you can load the package just like any oth
 ```{r}
 library(teachIRT)
 ```
+## Functionality
+
+teachIRT provides four types of functions
+
+(1) Functions to compute probabilities, e.g. to solve an item or to respond in a certain category. These functions begin with a p_ followed by the model name.
+
+(2) Functions to plot probabilities (ICCs, OCCs, CCCs). These functions begin with the type of plot followed by the model name.
+
+(3) Functions to compute measures of statistical information. These functions begin with an inf_ followed by the model name.
+
+(4) Functions to plot measures of statistical information. These functions begin with an inf_plot_ followed by the model name.
+
+The model names are rasch, 2pl, 3pl, pcm, gpcm, and grm.
+
+## Demonstration
 
 Here is a demonstration of the functions provided by the package:
 
