@@ -97,6 +97,8 @@ occ_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
 ccc_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
 ```
 
+## Further Information
+
 The functions presented above come with a help file. Just type ?\<function_name\>.
 
 ```{r}
