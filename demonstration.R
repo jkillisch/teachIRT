@@ -61,3 +61,12 @@ p_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
 occ_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
 ccc_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
 
+# Thurstonian IRT ---------------------------------------------------------
+
+p_tirt(
+  theta = c(0.5, 0.7), 
+  mu = c(1, 0.3), 
+  lambda = c(0.74, 0.4), 
+  psi2 = c(1, 1)
+)
+

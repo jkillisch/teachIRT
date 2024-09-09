@@ -19,17 +19,18 @@ When the installation was successful, you can load the package just like any oth
 ```{r}
 library(teachIRT)
 ```
+
 ## Functionality
 
 teachIRT provides four types of functions
 
-(1) Functions to compute probabilities, e.g. probabilities to solve an item or to respond in a certain category. These functions begin with a p_ followed by the model name.
+(1) Functions to compute probabilities, e.g. probabilities to solve an item or to respond in a certain category. These functions begin with a p\_ followed by the model name.
 
 (2) Functions to plot probabilities (ICCs, OCCs, CCCs). These functions begin with the type of plot followed by the model name.
 
-(3) Functions to compute measures of statistical information. These functions begin with an inf_ followed by the model name. These functions are, currently, only available for the 1PL-3PL model.
+(3) Functions to compute measures of statistical information. These functions begin with an inf\_ followed by the model name. These functions are, currently, only available for the 1PL-3PL model.
 
-(4) Functions to plot measures of statistical information. These functions begin with an inf_plot_ followed by the model name.
+(4) Functions to plot measures of statistical information. These functions begin with an inf_plot\_ followed by the model name.
 
 The model names are rasch, 2pl, 3pl, pcm, gpcm, and grm.
 
@@ -95,6 +96,15 @@ p_step_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
 p_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
 occ_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
 ccc_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
+
+# Thurstonian IRT ---------------------------------------------------------
+
+p_tirt(
+  theta = c(0.5, 0.7), 
+  mu = c(1, 0.3), 
+  lambda = c(0.74, 0.4), 
+  psi2 = c(1, 1)
+)
 ```
 
 ## Further Information
