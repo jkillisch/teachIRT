@@ -105,6 +105,12 @@ p_tirt(
   lambda = c(0.74, 0.4), 
   psi2 = c(1, 1)
 )
+icc_tirt(
+  mu = c(1, 0.3), 
+  lambda = c(0.74, 0.4), 
+  psi2 = c(1, 1),
+  rotation = -40
+)
 ```
 
 ## Further Information
