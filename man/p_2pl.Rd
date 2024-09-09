@@ -9,7 +9,7 @@ p_2pl(theta, alpha, beta)
 \arguments{
 \item{theta}{Numeric, latent ability}
 
-\item{alpha}{Numeric, item discrimination}
+\item{alpha}{Numeric, item discrimination parameter}
 
 \item{beta}{Numeric, item difficulty}
 }

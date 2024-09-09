@@ -9,7 +9,7 @@ ccc_grm(theta_range = c(-5, 5), alpha, delta)
 \arguments{
 \item{theta_range}{Numeric vector of length 2, range of x-/theta-axis}
 
-\item{alpha}{Numeric, item discrimination}
+\item{alpha}{Numeric, item discrimination parameter}
 
 \item{delta}{Numeric vector, threshold parameters}
 }

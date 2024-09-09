@@ -9,7 +9,7 @@ icc_2pl(theta_range = c(-5, 5), alpha, beta)
 \arguments{
 \item{theta_range}{Numeric vector of length 2, range of x-/theta-axis}
 
-\item{alpha}{Numeric, item discrimination}
+\item{alpha}{Numeric, item discrimination parameter}
 
 \item{beta}{Numeric, item difficulty}
 }

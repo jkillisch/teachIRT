@@ -9,7 +9,7 @@ p_step_grm(theta, alpha, delta)
 \arguments{
 \item{theta}{Numeric, latent ability}
 
-\item{alpha}{Numeric, item discrimination}
+\item{alpha}{Numeric, item discrimination parameter}
 
 \item{delta}{Numeric vector, threshold parameters}
 }

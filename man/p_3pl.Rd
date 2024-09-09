@@ -9,7 +9,7 @@ p_3pl(theta, alpha, beta, gamma)
 \arguments{
 \item{theta}{Numeric, latent ability}
 
-\item{alpha}{Numeric, item discrimination}
+\item{alpha}{Numeric, item discrimination parameter}
 
 \item{beta}{Numeric, item difficulty}
 
