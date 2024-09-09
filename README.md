@@ -32,7 +32,7 @@ teachIRT provides four types of functions
 
 (4) Functions to plot measures of statistical information. These functions begin with an inf_plot\_ followed by the model name.
 
-The model names are rasch, 2pl, 3pl, pcm, gpcm, and grm.
+The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt.
 
 ## Demonstration
 
