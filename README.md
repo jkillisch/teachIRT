@@ -122,7 +122,7 @@ icc_tirt(
 )
 ```
 
-## Combined Use with patchwork Package
+## Combine teachIRT with patchwork Package
 
 Sometimes it is useful to portray multiple plots next to each other. In these
 cases, I recommend to combine teachIRT with the patchwork package. Here is a 
@@ -145,7 +145,6 @@ inf_1 <- inf_plot_3pl(alpha = 1, beta = 0, gamma = 0.1)
 inf_2 <- inf_plot_3pl(alpha = 1.2, beta = 0.5, gamma = 0.2)
 (icc) / (inf_1 + inf_2)
 ```
-
 
 ## Further Information
 
