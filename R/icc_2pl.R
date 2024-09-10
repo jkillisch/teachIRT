@@ -78,7 +78,7 @@ icc_2pl <- function (theta_range = c(-5, 5), alpha, beta) {
         latex2exp::TeX(
           paste0(
             "ICCs of a 2PL Model with ",
-            paste0("$\\alpha_", 1:I, "$ = ", beta, collapse = ", "),
+            paste0("$\\alpha_", 1:I, "$ = ", alpha, collapse = ", "),
             " and ",
             paste0("$\\beta_", 1:I, "$ = ", beta, collapse = ", ")
           )

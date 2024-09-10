@@ -62,7 +62,7 @@ icc_rasch <- function (theta_range = c(-5, 5), beta) {
       ggplot2::ggtitle(
         latex2exp::TeX(
           paste0(
-            "ICC of a Rasch Model with ",
+            "ICCs of a Rasch Model with ",
             paste0("$\\beta_", 1:I, "$ = ", beta, collapse = ", ")
             )
         )
