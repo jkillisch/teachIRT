@@ -1,5 +1,5 @@
 
-# Demonstration of R-package teachIRT
+# Demonstration of the R-package teachIRT
 
 library(teachIRT)
 

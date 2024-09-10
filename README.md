@@ -14,7 +14,7 @@ Install the package using
 devtools::install_github("jkillisch/teachIRT")
 ```
 
-When the installation was successful, you can load the package just like any other R-package:
+You can load the package just like any other R-package:
 
 ```{r}
 library(teachIRT)
@@ -39,7 +39,7 @@ The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt.
 Here is a demonstration of the functions provided by the package:
 
 ```{r}
-# Demonstration of R-package teachIRT
+# Demonstration of the R-package teachIRT
 
 library(teachIRT)
 
