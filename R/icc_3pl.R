@@ -106,7 +106,8 @@ icc_3pl <- function (theta_range = c(-5, 5), alpha, beta, gamma) {
             paste0("$\\gamma_", 1:I, "$ = ", gamma, collapse = ", ")
           )
         )
-      )
+      ) +
+      ggplot2::guides(color = ggplot2::guide_legend("Item"))
 
   }
 

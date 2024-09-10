@@ -66,7 +66,8 @@ icc_rasch <- function (theta_range = c(-5, 5), beta) {
             paste0("$\\beta_", 1:I, "$ = ", beta, collapse = ", ")
             )
         )
-      )
+      ) +
+      ggplot2::guides(color = ggplot2::guide_legend("Item"))
 
   }
 
