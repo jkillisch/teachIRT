@@ -82,10 +82,10 @@ icc_3pl <- function (theta_range = c(-5, 5), alpha, beta, gamma) {
       ggplot2::ggtitle(
         latex2exp::TeX(
           paste0(
-            "ICC of a 3PL Model with $\\beta$ = ",
-            beta,
-            " and $\\alpha$ = ",
+            "ICC of a 3PL Model with $\\alpha$ = ",
             alpha,
+            " and $\\beta$ = ",
+            beta,
             " and $\\gamma$ = ",
             gamma
             )
