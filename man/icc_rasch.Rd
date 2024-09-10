@@ -19,4 +19,5 @@ Plot an ICC using the Rasch model
 }
 \examples{
 icc_rasch(beta = -0.7)
+icc_rasch(beta = 0:2)
 }

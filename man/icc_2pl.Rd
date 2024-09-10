@@ -21,4 +21,5 @@ Plot an ICC using the 2PL model
 }
 \examples{
 icc_2pl(alpha = 1.2, beta = 1.5)
+icc_2pl(alpha = c(1, 1.2), beta = c(0, 1.5))
 }
