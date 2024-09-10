@@ -122,7 +122,7 @@ icc_tirt(
 )
 ```
 
-## Combine teachIRT with patchwork Package
+## Combine teachIRT with the patchwork Package
 
 Sometimes it is useful to portray multiple plots next to each other. In these
 cases, I recommend to combine teachIRT with the patchwork package. Here is a 
