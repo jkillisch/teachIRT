@@ -25,6 +25,9 @@ inf_rasch(theta = 0.5, beta = 0.4)
 # Plot information function
 inf_plot_rasch(beta = 0.5)
 
+# Simulate responses
+sim_rasch(10, 5)
+
 # 2PL ---------------------------------------------------------------------
 
 p_2pl(theta = 1.5, beta = 0.5, alpha = 1)
@@ -39,6 +42,7 @@ inf_plot_2pl(alpha = 1.2, beta = 1.5)
 
 # You can manually scale the y-axis for better comparisons
 inf_plot_2pl(alpha = 1.2, beta = 1.5, y_lim = 1)
+sim_2pl(10, 5)
 
 # 3PL ---------------------------------------------------------------------
 
@@ -47,17 +51,20 @@ icc_3pl(alpha = 1, beta = 0.5, gamma = 0.3)
 icc_3pl(alpha = c(0.5, 1), beta = c(1, 0.5), gamma = c(0.2, 0.3))
 inf_3pl(theta = 0, alpha = 1, beta = 0.5, gamma = 0.3)
 inf_plot_3pl(alpha = 1, beta = 0.5, gamma = 0.3)
+sim_3pl(10, 5)
 
 # PCM ---------------------------------------------------------------------
 
 # Gives all category probabilities
 p_pcm(theta = 0.5, delta = c(-1, 0, 1))
 icc_pcm(delta = c(-1, 0, 1))
+sim_pcm(10, 5, 3)
 
 # GPCM --------------------------------------------------------------------
 
 p_gpcm(theta = 0, alpha = 2, delta = c(-3, -1, 2))
 icc_gpcm(alpha = 2, delta = c(-3, -1, 2))
+sim_gpcm(10, 5, 3)
 
 # GRM ---------------------------------------------------------------------
 
@@ -65,6 +72,7 @@ p_step_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
 p_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
 occ_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
 ccc_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
+sim_grm(10, 5, 3)
 
 # Thurstonian IRT ---------------------------------------------------------
 
