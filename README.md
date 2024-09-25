@@ -32,9 +32,9 @@ teachIRT provides five types of functions
 
 (4) Functions to plot measures of statistical information. These functions begin with an inf_plot\_ followed by the model name.
 
-(5) Functions to simulate responses. These functions begin with a sim\_ followed by the model name.
+(5) Functions to simulate responses. These functions begin with a sim\_ followed by the model name. These functions are available for all unidimensional models.
 
-The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt. Note, that you cannot fully cross all functions and model names. Only combinations that are relevant for our teaching program are available. See the demonstration below.
+The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt.
 
 ## Demonstration
 
