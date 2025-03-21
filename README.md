@@ -36,7 +36,29 @@ teachIRT provides five types of functions
 
 (5) Functions to simulate responses. These functions begin with a sim\_ followed by the model name. These functions are available for all rating scale models.
 
-The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt.
+The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt. Not all combinations are currently available. The following table sorts all implemented functions.
+
+### Overview of teachIRT Functions
+
++-------+-------------+------------------+-------------+------------------+------------+
+| Model | Probability | Probability Plot | Information | Information Plot | Simulation |
++=======+=============+==================+=============+==================+============+
+| Rasch | p_rasch     | icc_rasch        | inf_rasch   | inf_plot_rasch   | sim_rasch  |
++-------+-------------+------------------+-------------+------------------+------------+
+| 2PL   | p_2pl       | icc_2pl          | inf_2pl     | inf_plot_2pl     | sim_2pl    |
++-------+-------------+------------------+-------------+------------------+------------+
+| 3PL   | p_3pl       | icc_3pl          | inf_3pl     | inf_plot_3pl     | sim_3pl    |
++-------+-------------+------------------+-------------+------------------+------------+
+| PCM   | p_pcm       | icc_pcm          |             |                  | sim_pcm    |
++-------+-------------+------------------+-------------+------------------+------------+
+| GPCM  | p_gpcm      | icc_gpcm         |             |                  | sim_gpcm   |
++-------+-------------+------------------+-------------+------------------+------------+
+| GRM   | p_step_grm  | occ_grm          |             |                  | sim_grm    |
+|       |             |                  |             |                  |            |
+|       | p_grm       | ccc_grm          |             |                  |            |
++-------+-------------+------------------+-------------+------------------+------------+
+| TIRT  | p_tirt      | icc_tirt         |             |                  |            |
++-------+-------------+------------------+-------------+------------------+------------+
 
 ## Demonstration
 
