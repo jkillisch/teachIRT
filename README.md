@@ -10,7 +10,7 @@ Install the package using
 
 ```{r}
 # Run this if the devtools package isn't installed
-# install.packages("devtools")
+install.packages("devtools")
 
 # Install the teachIRT package
 devtools::install_github("jkillisch/teachIRT")
