@@ -6,8 +6,8 @@ lin <- function (theta, alpha, beta) {
 
   lin <- alpha*(theta-beta)
 
-  return(lin)
-
   checkmate::assert_number(lin)
+  
+  return(lin)
 
   }
