@@ -22,7 +22,8 @@ Imports:
     checkmate,
     ggplot2,
     latex2exp,
-    tidyr
+    tidyr,
+    dplyr
 License: GPL (>= 3)
 Suggests: 
     testthat (>= 3.0.0)
