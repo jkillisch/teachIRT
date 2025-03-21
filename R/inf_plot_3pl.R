@@ -3,13 +3,20 @@
 #' @inheritParams icc_3pl
 #' @inheritParams p_3pl
 #' @inheritParams p_2pl
+#' @inheritParams inf_plot_2pl
 #'
 #' @return A ggplot2 object
 #' @export
 #' @examples
 #' inf_plot_3pl(alpha = 1, beta = 0.5, gamma = 0.3)
 
-inf_plot_3pl <- function (theta_range = c(-5, 5), alpha, beta, gamma, y_lim = NULL) {
+inf_plot_3pl <- function (
+    theta_range = c(-5, 5), 
+    alpha, 
+    beta, 
+    gamma, 
+    y_lim = NULL
+    ) {
 
   checkmate::assert_number(y_lim, null.ok = TRUE, lower = 0, finite = TRUE)
 
