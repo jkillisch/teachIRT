@@ -14,6 +14,8 @@ inf_plot_3pl(theta_range = c(-5, 5), alpha, beta, gamma, y_lim = NULL)
 \item{beta}{Numeric, item difficulty}
 
 \item{gamma}{Numeric, guessing parameter}
+
+\item{y_lim}{Numeric, upper limit of the y-/information-axis}
 }
 \value{
 A ggplot2 object

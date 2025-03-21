@@ -9,7 +9,12 @@
 #' @examples
 #' inf_plot_2pl(alpha = 1.2, beta = 1.5)
 
-inf_plot_2pl <- function (theta_range = c(-5, 5), alpha, beta, y_lim = NULL) {
+inf_plot_2pl <- function (
+    theta_range = c(-5, 5), 
+    alpha, 
+    beta, 
+    y_lim = NULL
+    ) {
 
   checkmate::assert_number(y_lim, null.ok = TRUE, lower = 0, finite = TRUE)
 
