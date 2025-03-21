@@ -2,6 +2,8 @@
 
 teachIRT is a simple R-package that can be used to teach and explore item response theory (IRT). It is not intended for research or applied psychometrics.
 
+[![R-CMD-check](https://github.com/jkillisch/teachIRT/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jkillisch/teachIRT/actions/workflows/R-CMD-check.yaml)
+
 ## Installation
 
 Install the package using
