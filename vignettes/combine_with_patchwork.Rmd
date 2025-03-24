@@ -1,0 +1,77 @@
+---
+title: "Combining the teachIRT Package with the Patchwork Package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{combine_with_patchwork}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = "center",     # Center figures
+  fig.width = 8,           # Width in inches (wider format)
+  fig.height = 5,           # Height in inches
+  dpi = 300,                # High-resolution output
+  out.width = "100%"        # Ensure full width in HTML/PDF
+)
+```
+
+Sometimes it can be useful to portray multiple plots next to each other. In these cases, I recommend combining the teachIRT with the patchwork package. In this vignette the approach is demonstrated.
+
+## Installing the patchwork and teachIRT Package
+
+If you haven't installed the patchwork package yet, you can install it from CRAN using the following code snippet:
+
+```{r, eval=FALSE}
+install.packages("patchwork")
+```
+
+For any further information on the patchwork package see <https://patchwork.data-imaginist.com/>.
+
+Moreover, it is assumed that you have already installed the teachIRT package. If not, just follow the installation instructions in the demonstration vignette. After installing both packages, they can be loaded via the library call.
+
+```{r setup}
+library(teachIRT)
+library(patchwork)
+```
+
+## Combining ICCs
+
+Sometimes, it is useful to compare the ICC plots of two items to eachother. For the 1PL-3PL model, there is a command included in the teachIRT package, that can do just that.
+
+```{r}
+icc_2pl(alpha = c(0.5, 1.2), beta = c(-1, 0))
+```
+
+If vectors are passed to the arguments alpha and beta, the package will plot the ICCs of both items in a single plot. However, for models designed for polytomous rating scales, such plots can quickly become confusing. For example, here are the ICCs of just one item in the GPCM:
+
+```{r}
+icc_gpcm(alpha = 1.2, delta = c(-0.2, -0.1, 1, 2.3))
+```
+
+In these cases, items can be better compared by showing multiple plots on top of eachother.
+
+```{r}
+# Create ICC plots and store them in p_1 and p_2
+p_1 <- icc_gpcm(alpha = 1.2, delta = c(-0.2, -0.1, 1, 2.3))
+p_2 <- icc_gpcm(alpha = 0.5, delta = -1:2)
+
+# Plot the ICCs on top of eachother
+p_1 / p_2
+```
+
+## Combining ICCs and Information Functions
+
+Another potential usecase is to combine ICCs and information plots. Because the x-axis is the same in both plots, but the y-axis is different, it makes sense to plot these types of plots on top of eachother.
+
+```{r}
+# Create ICC plot
+icc <- icc_3pl(alpha = 1, beta = 0.5, gamma = 0.5)
+
+# Create information plots
+inf <- inf_plot_3pl(alpha = 1, beta = 0.5, gamma = 0.5)
+icc / inf
+```

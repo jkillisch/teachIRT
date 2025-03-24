@@ -8,7 +8,7 @@ teachIRT is a simple R-package that can be used to teach and explore item respon
 
 Install the package using
 
-```{r}
+```{r, eval=FALSE}
 # Run this if the devtools package isn't installed
 install.packages("devtools")
 
@@ -24,142 +24,23 @@ library(teachIRT)
 
 ## Functionality
 
-teachIRT provides five types of functions
+teachIRT provides five types of functions: (1) Functions to compute probabilities, (2) functions to plot probabilities, (3) functions to compute measures of statistical information, (4) functions to create information plots, and (5) functions to simulate responses.
 
-(1) Functions to compute probabilities, e.g. probabilities to solve an item or to respond in a certain category. These functions begin with a p\_ followed by the model name.
-
-(2) Functions to plot probabilities (ICCs, OCCs, CCCs). These functions begin with the type of plot followed by the model name.
-
-(3) Functions to compute measures of statistical information. These functions begin with an inf\_ followed by the model name. These functions are, currently, only available for the 1PL-3PL model.
-
-(4) Functions to plot measures of statistical information. These functions begin with an inf_plot\_ followed by the model name.
-
-(5) Functions to simulate responses. These functions begin with a sim\_ followed by the model name. These functions are available for all rating scale models.
-
-The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt.
-
-## Demonstration
-
-Here is a demonstration of the functions provided by the package:
+Available models are are the 1PL/Rasch, 2PL, 3PL, PCM, GPCM, GRM, and TIRT model. However, functions (1)-(5) are not fully crossed with all models. See the demonstration vignette for an overview and demonstration of all package functions:
 
 ```{r}
-
-# Demonstration of the R-package teachIRT
-
-library(teachIRT)
-
-# Rasch -------------------------------------------------------------------
-
-# Probability to solve an item
-p_rasch(theta = 3, beta = 2)
-p_rasch(theta = 4, beta = 2)
-p_rasch(theta = 2, beta = 3)
-
-# Plot ICC
-icc_rasch(beta = -0.7)
-
-# Wider x-axis
-icc_rasch(theta_range = c(-10, 10), beta = -0.7)
-
-# Multiple items (currently only for 1PL-3PL ICCs)
-icc_rasch(beta = -1:1)
-
-# Information at theta
-inf_rasch(theta = 0.5, beta = 0.4)
-
-# Plot information function
-inf_plot_rasch(beta = 0.5)
-
-# Simulate responses
-sim_rasch(10, 5)
-
-# 2PL ---------------------------------------------------------------------
-
-p_2pl(theta = 1.5, beta = 0.5, alpha = 1)
-p_2pl(theta = 1, beta = 0.5, alpha = 1)
-p_2pl(theta = 1.5, beta = 0.5, alpha = 0.2)
-p_2pl(theta = 1, beta = 0.5, alpha = 0.2)
-
-icc_2pl(alpha = 1.2, beta = 1.5)
-icc_2pl(alpha = c(1, 1.2), beta = c(0, 1.5))
-inf_2pl(theta = 0.5, alpha = 1.2, beta = 1.5)
-inf_plot_2pl(alpha = 1.2, beta = 1.5)
-
-# You can manually scale the y-axis for better comparisons
-inf_plot_2pl(alpha = 1.2, beta = 1.5, y_lim = 1)
-sim_2pl(10, 5)
-
-# 3PL ---------------------------------------------------------------------
-
-p_3pl(theta = -5, beta = 0.5, alpha = 1, gamma = 0.3)
-icc_3pl(alpha = 1, beta = 0.5, gamma = 0.3)
-icc_3pl(alpha = c(0.5, 1), beta = c(1, 0.5), gamma = c(0.2, 0.3))
-inf_3pl(theta = 0, alpha = 1, beta = 0.5, gamma = 0.3)
-inf_plot_3pl(alpha = 1, beta = 0.5, gamma = 0.3)
-sim_3pl(10, 5)
-
-# PCM ---------------------------------------------------------------------
-
-# Gives all category probabilities
-p_pcm(theta = 0.5, delta = c(-1, 0, 1))
-icc_pcm(delta = c(-1, 0, 1))
-sim_pcm(10, 5, 3)
-
-# GPCM --------------------------------------------------------------------
-
-p_gpcm(theta = 0, alpha = 2, delta = c(-3, -1, 2))
-icc_gpcm(alpha = 2, delta = c(-3, -1, 2))
-sim_gpcm(10, 5, 3)
-
-# GRM ---------------------------------------------------------------------
-
-p_step_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
-p_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
-occ_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
-ccc_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
-sim_grm(10, 5, 3)
-
-# Thurstonian IRT ---------------------------------------------------------
-
-p_tirt(
-  theta = c(0.5, 0.7),
-  mu = c(1, 0.3),
-  lambda = c(0.74, 0.4),
-  psi2 = c(1, 1)
-)
-icc_tirt(
-  mu = c(1, 0.3),
-  lambda = c(0.74, 0.4),
-  psi2 = c(1, 1),
-  rotation = -40 # Change this number to rotate the plot
-)
+vignette("demonstration", "teachIRT")
 ```
 
-## Combine teachIRT with the patchwork Package
-
-Sometimes it is useful to portray multiple plots next to each other. In these cases, I recommend to combine teachIRT with the patchwork package. Here is a demonstration:
+There is another vignette related to combining multiple plots using the patchwork package. It can be also be viewed using the vignette command:
 
 ```{r}
-# install.packages("patchwork")
-library(patchwork)
-library(teachIRT)
-
-# Example 1
-p_1 <- icc_gpcm(alpha = 1.2, delta = 0:1)
-p_2 <- icc_gpcm(alpha = 0.5, delta = 0:1)
-p_1 / p_2
-p_1 + p_2
-
-# Example 2
-icc <- icc_3pl(alpha = c(1, 1.2), beta = c(0, 0.5), gamma = c(0.1, 0.2))
-inf_1 <- inf_plot_3pl(alpha = 1, beta = 0, gamma = 0.1)
-inf_2 <- inf_plot_3pl(alpha = 1.2, beta = 0.5, gamma = 0.2)
-(icc) / (inf_1 + inf_2)
+vignette("combine_with_patchwork", "teachIRT")
 ```
 
-## Further Information
+## Help Files
 
-The functions presented above come with a help file. Just type ?\<function_name\>.
+All user functions come with a help file. Just type ?\<function_name\> for further information.
 
 ```{r}
 # Show help file for the function p_rasch

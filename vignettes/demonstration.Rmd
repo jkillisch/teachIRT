@@ -1,0 +1,233 @@
+---
+title: "Demonstration of teachIRT Functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{demonstration}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = "center",     # Center figures
+  fig.width = 6,           # Width in inches (wider format)
+  fig.height = 4,           # Height in inches
+  dpi = 300,                # High-resolution output
+  out.width = "80%"        # Ensure full width in HTML/PDF
+)
+
+```
+
+teachIRT is an R package that can be used to teach and explore Item Response Theory (IRT). This vignette demonstrates how to install the package, provides an overview of all user functions included in the package, and includes exemplary code snippets for all functions.
+
+## Installing the package
+
+teachIRT can be installed from GitHub using the devtools package. If you haven't installed the devtools package yet, just run this code snippet:
+
+```{r, eval = FALSE}
+install.packages("devtools")
+```
+
+After installing the devtools package, the function devtools::install_github becomes available. It can be used to install a package from a GitHub repository. For the teachIRT package, the following command can be used:
+
+```{r, eval = FALSE}
+devtools::install_github("jkillisch/teachIRT")
+```
+
+Note, that teachIRT is not available on CRAN. So simply running install.packages("teachIRT") will result in an error message or an installation of the wrong package.
+
+The current package version hosted on GitHub will always be checked on the latest version of MacOS, Windows and Ubuntu (release, developer, odrel-1) via GitHub Actions. On the package's GitHub page, there is a badge labelled R-CMD-check.yaml. If the badge is marked as *passed*, the package should install on these systems. If you, nevertheless, encounter problems while installing the package, please don't hesitate sending an email (see <https://github.com/jkillisch>).
+
+After installing the package, it can be loaded just like any other R package:
+
+```{r setup}
+library(teachIRT)
+```
+
+## Overview of Functions Available in teachIRT
+
+teachIRT provides five types of functions
+
+(1) **Functions to compute probabilities**, e.g. probabilities to solve an item or to respond in a certain category. These functions begin with a p\_ followed by the model name.
+
+(2) **Functions to plot probabilities** (ICCs, OCCs, CCCs). These functions begin with the type of plot followed by the model name.
+
+(3) **Functions to compute measures of statistical information**. These functions begin with an inf\_ followed by the model name. These functions are, currently, only available for the 1PL-3PL model.
+
+(4) **Functions to plot measures of statistical information**. These functions begin with an inf_plot\_ followed by the model name.
+
+(5) **Functions to simulate responses**. These functions begin with a sim\_ followed by the model name. These functions are available for all rating scale models.
+
+The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt. The following table displays all functions by model and function type.
+
++------------+-------------+------------------+-------------+------------------+------------+
+| Model      | Probability | Probability Plot | Information | Information Plot | Simulation |
++============+=============+==================+=============+==================+============+
+| 1PL/ Rasch | p_rasch     | icc_rasch        | inf_rasch   | inf_plot_rasch   | sim_rasch  |
++------------+-------------+------------------+-------------+------------------+------------+
+| 2PL        | p_2pl       | icc_2pl          | inf_2pl     | inf_plot_2pl     | sim_2pl    |
++------------+-------------+------------------+-------------+------------------+------------+
+| 3PL        | p_3pl       | icc_3pl          | inf_3pl     | inf_plot_3pl     | sim_3pl    |
++------------+-------------+------------------+-------------+------------------+------------+
+| PCM        | p_pcm       | icc_pcm          |             |                  | sim_pcm    |
++------------+-------------+------------------+-------------+------------------+------------+
+| GPCM       | p_gpcm      | icc_gpcm         |             |                  | sim_gpcm   |
++------------+-------------+------------------+-------------+------------------+------------+
+| GRM        | p_grm       | occ_grm          |             |                  | sim_grm    |
+|            |             |                  |             |                  |            |
+|            |             | ccc_grm          |             |                  |            |
++------------+-------------+------------------+-------------+------------------+------------+
+| TIRT       | p_tirt      | icc_tirt         |             |                  |            |
++------------+-------------+------------------+-------------+------------------+------------+
+
+All functions displayed in the table come with a help file. If the package has been loaded, it can be shown by typing a question mark followed by the function name, e.g.:
+
+```{r}
+?icc_2pl
+```
+
+## Demonstration of Functions Available in teachIRT
+
+### Rasch-Model
+
+```{r}
+# Probability to solve an item
+p_rasch(theta = 3, beta = 2)
+p_rasch(theta = 4, beta = 2)
+p_rasch(theta = 2, beta = 3)
+
+# Plot an ICC
+icc_rasch(beta = -0.7)
+
+# Wider x-axis
+icc_rasch(theta_range = c(-10, 10), beta = -0.7)
+
+# Multiple items (currently only for 1PL-3PL ICCs)
+icc_rasch(beta = -1:1)
+
+# Information at theta
+inf_rasch(theta = 0.5, beta = 0.4)
+
+# Plot information function
+inf_plot_rasch(beta = 0.5)
+
+# Simulate responses
+sim_rasch(10, 5)
+```
+
+### 2PL-Model
+
+```{r}
+# Probability to solve an item
+p_2pl(theta = 1.5, beta = 0.5, alpha = 1)
+p_2pl(theta = 1, beta = 0.5, alpha = 1)
+p_2pl(theta = 1.5, beta = 0.5, alpha = 0.2)
+p_2pl(theta = 1, beta = 0.5, alpha = 0.2)
+
+# Plot ICC of an item
+icc_2pl(alpha = 1.2, beta = 1.5)
+
+# Plot ICCs of multiple items
+icc_2pl(alpha = c(1, 1.2), beta = c(0, 1.5))
+
+# Information at theta
+inf_2pl(theta = 0.5, alpha = 1.2, beta = 1.5)
+
+# Plot information function
+inf_plot_2pl(alpha = 1.2, beta = 1.5)
+
+# You can manually scale the y-axis for better comparisons
+inf_plot_2pl(alpha = 1.2, beta = 1.5, y_lim = 1)
+
+# Simulate responses
+sim_2pl(10, 5)
+```
+
+### 3PL-Model
+
+```{r}
+# Probability to solve an item
+p_3pl(theta = -5, beta = 0.5, alpha = 1, gamma = 0.3)
+
+# Plot ICC of an item
+icc_3pl(alpha = 1, beta = 0.5, gamma = 0.3)
+
+# Plot ICCs of multiple items
+icc_3pl(alpha = c(0.5, 1), beta = c(1, 0.5), gamma = c(0.2, 0.3))
+
+# Information at theta
+inf_3pl(theta = 0, alpha = 1, beta = 0.5, gamma = 0.3)
+
+# Plot information function
+inf_plot_3pl(alpha = 1, beta = 0.5, gamma = 0.3)
+
+# Simulate responses
+sim_3pl(10, 5)
+```
+
+### Partial Credit Model
+
+```{r}
+# Compute category probabilities
+p_pcm(theta = 0.5, delta = c(-1, 0, 1))
+
+# Plot ICCs of an item
+icc_pcm(delta = c(-1, 0, 1))
+
+# Simulate responses
+sim_pcm(10, 5, 3)
+```
+
+### Generalized Partial Credit Model
+
+```{r}
+# Compute categoriy probabilities
+p_gpcm(theta = 0, alpha = 2, delta = c(-3, -1, 2))
+
+# Plot ICC of an item
+icc_gpcm(alpha = 2, delta = c(-3, -1, 2))
+
+# Simulate responses
+sim_gpcm(10, 5, 3)
+```
+
+### Graded Response Model
+
+```{r}
+# Compute step probabilities
+p_step_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
+
+# Compute category probabilities
+p_grm(theta = 1, delta = c(-2, -0.5, 1.5), alpha = 1.2)
+
+# Plot OCCs of an item
+occ_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
+
+# Plot CCCs of an item
+ccc_grm(alpha = 1.2, delta = c(-2, -0.5, 1.5))
+
+# Simulate responses
+sim_grm(10, 5, 3)
+```
+
+### Thurstonian IRT Model
+
+```{r}
+# Plot probability of prefer item 1 over item 2 in a pair
+p_tirt(
+  theta = c(0.5, 0.7),
+  mu = c(1, 0.3),
+  lambda = c(0.74, 0.4),
+  psi2 = c(1, 1)
+)
+
+# Plot ICC of a pair
+icc_tirt(
+  mu = c(1, 0.3),
+  lambda = c(0.74, 0.4),
+  psi2 = c(1, 1),
+  rotation = -40 # Change this number to rotate the plot
+)
+```
