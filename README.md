@@ -16,6 +16,16 @@ install.packages("devtools")
 devtools::install_github("jkillisch/teachIRT")
 ```
 
+If you would like to include knitted vignettes in the installation, use:
+
+```{r, eval=FALSE}
+devtools::install_github(
+  "jkillisch/teachIRT",
+  build_vignettes = TRUE,
+  dependencies = TRUE
+)
+```
+
 You can load the package just like any other R-package:
 
 ```{r}
@@ -26,7 +36,7 @@ library(teachIRT)
 
 teachIRT provides five types of functions: (1) Functions to compute probabilities, (2) functions to plot probabilities, (3) functions to compute measures of statistical information, (4) functions to create information plots, and (5) functions to simulate responses.
 
-Available models are are the 1PL/Rasch, 2PL, 3PL, PCM, GPCM, GRM, and TIRT model. However, functions (1)-(5) are not fully crossed with all models. See the demonstration vignette for an overview and demonstration of all package functions:
+Available models are are the 1PL/Rasch, 2PL, 3PL, PCM, GPCM, GRM, and TIRT model. However, functions (1)-(5) are not fully crossed with all models. If vignettes have been built, you can check the demonstration vignette for an overview and demonstration of all package functions.
 
 ```{r}
 vignette("demonstration", "teachIRT")
