@@ -34,9 +34,9 @@ library(teachIRT)
 
 ## Functionality
 
-teachIRT provides five types of functions: (1) Functions to compute probabilities, (2) functions to plot probabilities, (3) functions to compute measures of statistical information, (4) functions to create information plots, and (5) functions to simulate responses.
+teachIRT provides six types of functions: (1) Functions to compute probabilities, (2) functions to plot probabilities, (3) functions to compute measures of statistical information, (4) functions to create information plots, (5) functions to compute confidence intervals around person parameters, and (6) functions to simulate responses.
 
-Available models are are the 1PL/Rasch, 2PL, 3PL, PCM, GPCM, GRM, and TIRT model. However, functions (1)-(5) are not fully crossed with all models. If vignettes have been built, you can check the demonstration vignette for an overview and demonstration of all package functions.
+Available models are are the 1PL/Rasch, 2PL, 3PL, PCM, GPCM, GRM, and TIRT model. However, functions (1)-(6) are not fully crossed with all models. If vignettes have been built, you can check the demonstration vignette for an overview and demonstration of all package functions.
 
 ```{r}
 vignette("demonstration", "teachIRT")

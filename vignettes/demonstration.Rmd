@@ -36,6 +36,16 @@ After installing the devtools package, the function devtools::install_github bec
 devtools::install_github("jkillisch/teachIRT")
 ```
 
+If you would like to knit vignettes upon installation, you can use the following command:
+
+```{r, eval = FALSE}
+devtools::install_github(
+  "jkillisch/teachIRT",
+  build_vignettes = TRUE,
+  dependencies = TRUE
+)
+```
+
 Note, that teachIRT is not available on CRAN. So simply running install.packages("teachIRT") will result in an error message or an installation of the wrong package.
 
 The current package version hosted on GitHub will always be checked on the latest version of MacOS, Windows and Ubuntu (release, developer, odrel-1) via GitHub Actions. On the package's GitHub page, there is a badge labelled R-CMD-check.yaml. If the badge is marked as *passed*, the package should install on these systems. If you, nevertheless, encounter problems while installing the package, please don't hesitate sending an email (see <https://github.com/jkillisch>).
@@ -58,29 +68,31 @@ teachIRT provides five types of functions
 
 (4) **Functions to plot measures of statistical information**. These functions begin with an inf_plot\_ followed by the model name.
 
-(5) **Functions to simulate responses**. These functions begin with a sim\_ followed by the model name. These functions are available for all rating scale models.
+(5) **Functions to compute confidence intervals around person parameters**. These functions begin with a ci\_ followed by the model name. These functions are, currently, only available for the 1PL-3PL model.
+
+(6) **Functions to simulate responses**. These functions begin with a sim\_ followed by the model name. These functions are available for all rating scale models.
 
 The model names are rasch, 2pl, 3pl, pcm, gpcm, grm, and tirt. The following table displays all functions by model and function type.
 
-+------------+-------------+------------------+-------------+------------------+------------+
-| Model      | Probability | Probability Plot | Information | Information Plot | Simulation |
-+============+=============+==================+=============+==================+============+
-| 1PL/ Rasch | p_rasch     | icc_rasch        | inf_rasch   | inf_plot_rasch   | sim_rasch  |
-+------------+-------------+------------------+-------------+------------------+------------+
-| 2PL        | p_2pl       | icc_2pl          | inf_2pl     | inf_plot_2pl     | sim_2pl    |
-+------------+-------------+------------------+-------------+------------------+------------+
-| 3PL        | p_3pl       | icc_3pl          | inf_3pl     | inf_plot_3pl     | sim_3pl    |
-+------------+-------------+------------------+-------------+------------------+------------+
-| PCM        | p_pcm       | icc_pcm          |             |                  | sim_pcm    |
-+------------+-------------+------------------+-------------+------------------+------------+
-| GPCM       | p_gpcm      | icc_gpcm         |             |                  | sim_gpcm   |
-+------------+-------------+------------------+-------------+------------------+------------+
-| GRM        | p_grm       | occ_grm          |             |                  | sim_grm    |
-|            |             |                  |             |                  |            |
-|            |             | ccc_grm          |             |                  |            |
-+------------+-------------+------------------+-------------+------------------+------------+
-| TIRT       | p_tirt      | icc_tirt         |             |                  |            |
-+------------+-------------+------------------+-------------+------------------+------------+
++------------+-------------+------------------+-------------+------------------+---------------------+------------+
+| Model      | Probability | Probability Plot | Information | Information Plot | Confidence Interval | Simulation |
++============+=============+==================+=============+==================+=====================+============+
+| 1PL/ Rasch | p_rasch     | icc_rasch        | inf_rasch   | inf_plot_rasch   | ci_rasch            | sim_rasch  |
++------------+-------------+------------------+-------------+------------------+---------------------+------------+
+| 2PL        | p_2pl       | icc_2pl          | inf_2pl     | inf_plot_2pl     | ci_2pl              | sim_2pl    |
++------------+-------------+------------------+-------------+------------------+---------------------+------------+
+| 3PL        | p_3pl       | icc_3pl          | inf_3pl     | inf_plot_3pl     | ci_3pl              | sim_3pl    |
++------------+-------------+------------------+-------------+------------------+---------------------+------------+
+| PCM        | p_pcm       | icc_pcm          |             |                  |                     | sim_pcm    |
++------------+-------------+------------------+-------------+------------------+---------------------+------------+
+| GPCM       | p_gpcm      | icc_gpcm         |             |                  |                     | sim_gpcm   |
++------------+-------------+------------------+-------------+------------------+---------------------+------------+
+| GRM        | p_grm       | occ_grm          |             |                  |                     | sim_grm    |
+|            |             |                  |             |                  |                     |            |
+|            |             | ccc_grm          |             |                  |                     |            |
++------------+-------------+------------------+-------------+------------------+---------------------+------------+
+| TIRT       | p_tirt      | icc_tirt         |             |                  |                     |            |
++------------+-------------+------------------+-------------+------------------+---------------------+------------+
 
 All functions displayed in the table come with a help file. If the package has been loaded, it can be shown by typing a question mark followed by the function name, e.g.:
 
@@ -113,6 +125,14 @@ inf_rasch(theta = 0.5, beta = 0.4)
 # Plot information function
 inf_plot_rasch(beta = 0.5)
 
+# Compute confidence interval around theta using test information
+ci_rasch(
+  theta = 0,
+  beta = c(-0.5, 0, 1.2),
+  ci_alpha = 0.05,
+  ci_direction = "both"
+)
+
 # Simulate responses
 sim_rasch(10, 5)
 ```
@@ -141,6 +161,15 @@ inf_plot_2pl(alpha = 1.2, beta = 1.5)
 # You can manually scale the y-axis for better comparisons
 inf_plot_2pl(alpha = 1.2, beta = 1.5, y_lim = 1)
 
+# Compute confidence interval around theta using test information
+ci_2pl(
+  theta = 0,
+  beta = c(-0.5, 0, 1.2),
+  alpha = c(0.5, 1.2, 0.1),
+  ci_alpha = 0.05,
+  ci_direction = "both"
+)
+
 # Simulate responses
 sim_2pl(10, 5)
 ```
@@ -162,6 +191,16 @@ inf_3pl(theta = 0, alpha = 1, beta = 0.5, gamma = 0.3)
 
 # Plot information function
 inf_plot_3pl(alpha = 1, beta = 0.5, gamma = 0.3)
+
+# Compute confidence interval around theta using test information
+ci_3pl(
+  theta = 0,
+  beta = c(-0.5, 0, 1.2),
+  alpha = c(0.5, 1.2, 0.1),
+  gamma = c(0, 0.2, 0.4),
+  ci_alpha = 0.05,
+  ci_direction = "both"
+)
 
 # Simulate responses
 sim_3pl(10, 5)
