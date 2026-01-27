@@ -1,6 +1,6 @@
 # teachIRT
 
-teachIRT is a simple R-package that can be used to teach and explore item response theory (IRT). The package is used a lot in a university course I teach at the RPTU University Kaiserslautern-Landau (see German [course material](https://jkillisch.github.io/mb2-exercises/)).
+teachIRT is a simple R-package that can be used to teach and explore item response theory (IRT). The package is used a lot in a university course I teach at the RPTU University Kaiserslautern-Landau. The main [course material](https://jkillisch.github.io/mb2-exercises/)) is also available on GitHub (German language).
 
 [![R-CMD-check](https://github.com/jkillisch/teachIRT/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jkillisch/teachIRT/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/jkillisch/teachIRT/graph/badge.svg)](https://app.codecov.io/gh/jkillisch/teachIRT)
 
